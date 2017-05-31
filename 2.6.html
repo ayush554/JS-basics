@@ -1,0 +1,135 @@
+<html>
+<head>
+<link type="text/css" rel="stylesheet" href="stylesheet.css">
+<title>Welcome page</title>
+</head>
+<body >
+<form id = "s">
+<label>User Name</label>
+<input type="text" id="s1"onKeyup="Submit();"><div id="p" ></div><br><br>
+<label>Password</label>
+<input type="text" id="s2"onKeyup="Submit();"><div id="p1"></div><br><br>
+<label>E-mail</label>
+<input type="text" id="s3"onKeyup="Submit();"><div id="p2"></div><br><br>
+<label>Age</label>
+<input type="text" id="s4"onKeyup="Submit();"><div id="p3"></div><br><br>
+<input type="button" value="Reset" onclick="Reset()" id = "v2">
+</form>
+</body>
+<script type="text/javascript">
+var k=document.getElementById("p");
+var l=document.getElementById("p1");
+var m=document.getElementById("p2");
+var n=document.getElementById("p3");
+var a=document.getElementById("s1");
+var b=document.getElementById("s2");
+var c=document.getElementById("s3");
+var d=document.getElementById("s4");
+var f=document.getElementById("v2");
+var name = s1.value;
+var name1=s2.value;
+var name2=s3.value;
+var name3=s4.value;
+var re= /[a-zA-Z]+/;
+var re1=/[0-9]/;
+var re2=/[@]/g;
+var re3=/[.]/g;
+function Reset1()
+{p.innerHTML="";
+p1.innerHTML="";
+p2.innerHTML="";
+p3.innerHTML="";
+b.style.borderColor="initial";
+c.style.borderColor="initial";
+d.style.borderColor="initial";
+}
+function Reset() {
+document.getElementById("s").reset();
+p.innerHTML="";
+p1.innerHTML="";
+p2.innerHTML="";
+p3.innerHTML="";
+a.style.borderColor="initial";
+b.style.borderColor="initial";
+c.style.borderColor="initial";
+d.style.borderColor="initial";
+}
+function Submit(){
+var name=s1.value;
+var name1=s2.value;
+var name2=s3.value;
+var name3=s4.value;
+if(name1===""||name2===""||name3===""||name==="")
+   {if(name===""){
+   p.innerHTML="Please   fill   the   username   field.";
+   a.style.borderColor="red";}
+   else{
+   p.innerHTML="";
+   a.style.borderColor="green";}
+   if(name1===""){
+   p1.innerHTML="Please   fill   the   password   field.";
+   b.style.borderColor="red";}
+   else{
+   p1.innerHTML="";
+   b.style.borderColor="green";}
+   if(name2===""){
+   p2.innerHTML="Please   fill   the   email   field.";
+   c.style.borderColor="red";}
+   else{
+   p2.innerHTML="";
+   c.style.borderColor="green";}
+   if(name3===""){
+   p3.innerHTML="Please   fill   the   age   field.";
+   d.style.borderColor="red";}
+   else{
+   p3.innerHTML="";
+   d.style.borderColor="green";}
+   }
+else if(re.test(name.charAt(0))&&name.length>=5)
+    {Reset1();
+    a.style.borderColor="green";
+    p.innerHTML="";
+    if(re.test(name1)&&re1.test(name1)&&name1.length===6)
+      {b.style.borderColor="green";
+      p1.innerHTML="";
+      if(re.test(name2.charAt(0))&&re.test(name2.slice(-1)))
+        {var b2=name2.search(re2);
+         var b3=name2.search(re3);
+         if(b2>0&&b3>0&&b3-b2>=2)
+         {c.style.borderColor="green";
+         p2.innerHTML="";
+         if(name3>10&&name3<90)
+              {d.style.borderColor="green";
+              p3.innerHTML="";
+              alert("Form   validation   ­   success");
+              }
+              else
+              {d.style.borderColor="red";
+              p3.innerHTML="Age   should   be   a   number  between   10   and   90";
+              }
+         }
+          else
+         {c.style.borderColor="red";
+         p2.innerHTML=" Email field  should  be in  the   following   format:   [characters]@[characters].[characters].  ";
+         }
+        }
+        else
+        {c.style.borderColor="red";
+        p2.innerHTML="Email field   should  be in  the   following   format:   [characters]@[characters].[characters]. ";
+        }
+      }
+     else
+     {b.style.borderColor="red";
+     p1.innerHTML="Password   field   should   be   6   characters   in   length,   and   should   contain   both   number   and   characters.  ";
+     }
+}
+else
+     {Reset1();
+     a.style.borderColor="red";
+     p.innerHTML=" Username   should   start   with   a   alphabet   and   should   be   atleast   5   characters   in   length.   ";
+     
+     }
+
+}
+</script>
+</html>l

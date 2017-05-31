@@ -1,0 +1,41 @@
+<html>
+<head>
+<link type="text/css" rel="stylesheet" href="stylesheeta.css">
+<title>Welcome page</title>
+</head>
+<body>
+<form id = "s">
+<label>
+Enter Name</label>
+<input type="text" id="s1" onKeyup="Submit();"><br>
+</form>
+<div id="z"></div>
+</body>
+<script type="text/javascript">
+
+
+
+var a=document.getElementById("s1");
+var b=document.getElementById("z")
+var re=/[a-zA-Z]+/
+function Submit()
+{if(re.test(a.value.charAt(0)))
+{if(a.value.length>=3)
+{b.innerHTML="Username is Correct";
+}
+else
+{b.innerHTML="Username should have atleast 3 characters";
+}
+}
+else
+{b.innerHTML="Username should start with a alphabet";
+}
+
+}
+
+
+
+
+
+</script>
+</html>

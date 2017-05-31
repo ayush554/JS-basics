@@ -1,0 +1,90 @@
+<html>
+<head>
+<link type="text/css" rel="stylesheet" href="stylesheeta.css">
+<title>Welcome page</title>
+</head>
+<body>
+<form id = "s">
+<label>
+User Name</label>
+<input type="text" id="s1"><br><br>
+<label>
+Password</label>
+<input type="text" id="s2"><br><br>
+<label>
+E-mail</label>
+<input type="text" id="s3"><br><br>
+<label>
+Age</label>
+<input type="text" id="s4"><br><br>
+<input type="button" value="Submit" onclick="Submit()" id = "v1">
+<input type="button" value="Reset" onclick="Reset()" id = "v2">
+</form>
+</body>
+<script type="text/javascript">
+function Reset() {
+document.getElementById("s").reset();
+
+}
+function Submit(){
+
+var a=document.getElementById("s1");
+var b=document.getElementById("s2");
+var c=document.getElementById("s3");
+var d=document.getElementById("s4");
+var e=document.getElementById("v1");
+var f=document.getElementById("v2");
+var name = s1.value;
+var name1=s2.value;
+var name2=s3.value;
+var name3=s4.value;
+var re= /[a-zA-Z]+/;
+var re1=/[0-9]/;
+var re2=/[@]/g
+var re3=/[.]/g
+
+
+if(name1===""||name2===""||name3===""||name==="")
+   {alert("Please   fill   the   [username/password/email/age]   field");
+   }
+else if(re.test(name.charAt(0))&&name.length>=5)
+    {
+    if(re.test(name1)&&re1.test(name1)&&name1.length===6)
+      {
+      if(re.test(name2.charAt(0))&&re.test(name2.slice(-1)))
+        {var b2=name2.search(re2);
+         var b3=name2.search(re3);
+         if(b2>0&&b3>0&&b3-b2>=2)
+         {
+         if(name3>10&&name3<90)
+              {
+              alert("Form   validation   ­   success");
+              }
+              else
+              {
+              alert("Age   should   be   a   number  between   10   and   90");
+              }
+         }
+          else
+         {
+         alert(" Email field  should  be in  the   following   format:   [characters]@[characters].[characters].  ");
+         }
+        }
+        else
+        {
+        alert("Email field   should  be in  the   following   format:   [characters]@[characters].[characters]. ");
+        }
+      }
+     else
+     {
+     alert("Password   field   should   be   6   characters   in   length,   and   should   contain   both   number   and   characters.  ");
+     }
+}
+else
+     {
+     alert(" Username   should   start   with   a   alphabet   and   should   be   atleast   5   characters   in   length.   ");
+     }
+
+}
+</script>
+</html>
